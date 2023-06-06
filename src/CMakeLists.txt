@@ -52,7 +52,7 @@ endif()
 if(NOT keystone)
 
 	set(LLVM_TARGETS_TO_BUILD "X86")
-	CPMAddPackage("gh:altalk23/keystone#ee876d2")
+	CPMAddPackage("gh:keystone-engine/keystone#fb92f32")
 endif()
 
 target_link_libraries(TulipHook PRIVATE capstone-static keystone)
