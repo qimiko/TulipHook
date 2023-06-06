@@ -17,6 +17,8 @@ add_library(TulipHook STATIC
 	platform/WindowsConvention.cpp
 	platform/WindowsGenerator.cpp
 	platform/WindowsTarget.cpp
+	platform/LinuxGenerator.cpp
+	platform/LinuxTarget.cpp
 	platform/X86Generator.cpp
 )
 

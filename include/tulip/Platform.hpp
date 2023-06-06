@@ -42,6 +42,19 @@
 
 #endif
 
+#if defined(__linux__)
+
+	#define TULIP_HOOK_LINUX
+	#define TULIP_HOOK_SUPPORTED_PLATFORM
+
+	#define TULIP_HOOK_DEFAULT_CONV
+	#ifdef TULIP_HOOK_EXPORTING
+		#define TULIP_HOOK_DLL    [[gnu::visibility("default")]]
+	#else
+		#define TULIP_HOOK_DLL
+	#endif
+
+#endif
 
 #if !defined(TULIP_HOOK_SUPPORTED_PLATFORM)
 

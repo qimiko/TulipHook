@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <cstring>
 
 using namespace tulip::hook;
 
@@ -16,9 +17,12 @@ using X86WrapperGenerator = MacosWrapperGenerator;
 #elif defined(TULIP_HOOK_WINDOWS)
 using X86HandlerGenerator = WindowsHandlerGenerator;
 using X86WrapperGenerator = WindowsWrapperGenerator;
+#elif defined(TULIP_HOOK_LINUX)
+using X86HandlerGenerator = LinuxHandlerGenerator;
+using X86WrapperGenerator = LinuxWrapperGenerator;
 #endif
 
-#if defined(TULIP_HOOK_MACOS) || defined(TULIP_HOOK_WINDOWS)
+#if defined(TULIP_HOOK_MACOS) || defined(TULIP_HOOK_WINDOWS) || defined(TULIP_HOOK_LINUX)
 
 Result<> X86HandlerGenerator::generateHandler() {
 	TULIP_HOOK_UNWRAP_INTO(KSHolder ks, PlatformTarget::get().openKeystone());
